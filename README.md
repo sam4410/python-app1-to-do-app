@@ -1,4 +1,6 @@
-"A Desktop GUI Application for To-Do List Management"
+### "A Desktop GUI Application for To-Do List Management"
+
+
 This intuitive desktop application provides a graphical user interface (GUI) for managing personal to-do lists, built using Python and PySimpleGUI framework. The application offers users a streamlined way to organize their tasks with the following features:
 Key Features:
 
