@@ -12,11 +12,11 @@ Fsg.theme("DarkPurple")
 clock = Fsg.Text("", key="clock")
 label = Fsg.Text("Type in a to-do item")
 input_box = Fsg.InputText(tooltip="Enter to-do", key='to-do')
-add_button = Fsg.Button(size=10, image_source="add.png", mouseover_colors="LightBlue2", key="Add")
+add_button = Fsg.Button("Add")
 list_box = Fsg.Listbox(values=utility_funcs.get_todos(), key="todos",
                        enable_events=True, size=[45, 10])
 edit_button = Fsg.Button("Edit")
-complete_button = Fsg.Button(size=10, image_source="complete.png", mouseover_colors="LightBlue2", key="Complete")
+complete_button = Fsg.Button("Complete")
 exit_button = Fsg.Button("Exit")
 
 window = Fsg.Window('My To-Do App',
