@@ -10,7 +10,7 @@ while True:
     user_action = input("Type add, show, edit, complete or exit: ").strip()
     # check if user provided action is to 'add' and item
     if user_action.startswith('add'):
-        todo = user_action[4:].strip()
+        todo = user_action[4:].strip().title()
 
         todos = utility_funcs.get_todos()   # function call
 

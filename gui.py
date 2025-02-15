@@ -1,6 +1,11 @@
 import utility_funcs
 import FreeSimpleGUI as Fsg
 import time
+import os
+
+if not os.path.exists('todos.txt'):
+    with open('todos.txt', 'w') as file:
+        pass
 
 Fsg.theme("DarkPurple")
 
@@ -30,14 +35,15 @@ while True:
     match event:
         case "Add":
             todos = utility_funcs.get_todos()
-            todo = values['to-do'] + '\n'
+            todo = values['to-do'].strip().title() + '\n'
             todos.append(todo)
             utility_funcs.write_todos(todos_arg=todos)
             window['todos'].update(values=todos)
+            window['to-do'].update(value="")
         case "Edit":
             try:
                 todo_to_edit = values['todos'][0]
-                new_todo = values['to-do'] + '\n'
+                new_todo = values['to-do'].strip().title() + '\n'
                 todos = utility_funcs.get_todos()
                 index = todos.index(todo_to_edit)
                 todos[index] = new_todo
