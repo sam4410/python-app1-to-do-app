@@ -7,9 +7,14 @@ add_button = Fsg.Button("Add")
 list_box = Fsg.Listbox(values=utility_funcs.get_todos(), key="todos",
                        enable_events=True, size=[45, 10])
 edit_button = Fsg.Button("Edit")
+complete_button = Fsg.Button("Complete")
+exit_button = Fsg.Button("Exit")
 
 window = Fsg.Window('My To-Do App',
-                    layout=[[label], [input_box, add_button], [list_box, edit_button]],
+                    layout=[[label],
+                            [input_box, add_button],
+                            [list_box, edit_button, complete_button],
+                            [exit_button]],
                     font=('Helvetica', 20))
 
 while True:
@@ -31,6 +36,15 @@ while True:
             todos[index] = new_todo
             utility_funcs.write_todos(todos_arg=todos)
             window['todos'].update(values=todos)
+        case "Complete":
+            todo_to_complete = values['todos'][0]
+            todos = utility_funcs.get_todos()
+            todos.remove(todo_to_complete)
+            utility_funcs.write_todos(todos_arg=todos)
+            window['todos'].update(values=todos)
+            window['to-do'].update(value='')
+        case "Exit":
+            break
         case "todos":
             window['to-do'].update(value=values['todos'][0])
         case Fsg.WINDOW_CLOSED:
