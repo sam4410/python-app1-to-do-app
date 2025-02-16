@@ -13,7 +13,6 @@ def add_todo():
 st.title("My ToDo App")
 st.subheader("This is a todo app built on python")
 st.write("This app is aimed to increase my productivity")
-edit_button = st.button("Edit", key='todo_to_edit')
 
 for idx, todo in enumerate(todos):
     checkbox = st.checkbox(todo, key=todo)
