@@ -21,7 +21,7 @@ for idx, todo in enumerate(todos):
         todos.pop(idx)
         utility_funcs.write_todos(todos)
         del st.session_state[todo]
-        st.experimental_rerun()
+        st.rerun()
 
 
 st.text_input(label="", placeholder="Enter a new to-do here:",
